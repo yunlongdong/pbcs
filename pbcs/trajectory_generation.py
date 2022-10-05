@@ -82,7 +82,7 @@ class ThirdPolyTraj:
         for i in range(self.dof):
             plt.subplot(self.dof+1, 1, i+1)
             T = self.poly_interpolate_item[i].num_path * self.dt
-            t = np.linspace(0, T, 100)
+            t = np.linspace(0, T, 1000)
             q = [self.poly_interpolate_item[i].solution(j)[0] for j in t]
             plt.plot(t, q)
             for i, iq in enumerate(self.poly_interpolate_item[i].q):
@@ -110,6 +110,11 @@ class ThirdPolyTraj:
         ax.set_zlabel('z', labelpad=20)
         plt.show()
 
+    def solution(self, t):
+        q = [poly.solution(t)[0] for poly in self.poly_interpolate_item]
+        dq = [poly.solution(t)[1] for poly in self.poly_interpolate_item]
+        return q, dq
+        
 if __name__ == "__main__":
     traj_gen = ThirdPolyTraj(dof=6)
 
