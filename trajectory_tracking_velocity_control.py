@@ -40,7 +40,6 @@ for i in range(numj):
 dt = 1/240
 t = 0
 total_T = 20
-start_circle_point = [0.5, 0., 0.6]
 
 traj_T, traj_dt = np.linspace(0, total_T, 100, retstep=True)
 
@@ -103,7 +102,7 @@ while True:
     ee_link_vel_serial.append(ee_link_vel)
 
 
-    p.addUserDebugLine(line_start_pos, ee_link_pos, [1, 0, 0])
+    # p.addUserDebugLine(line_start_pos, ee_link_pos, [1, 0, 0])
     line_start_pos = ee_link_pos
     t += dt
     if t > total_T:

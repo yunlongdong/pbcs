@@ -219,7 +219,8 @@
     <child link="base"/>
   </joint>
   <!-- Frame coincident with all-zeros TCP on UR controller -->
-  <link name="tool0"/>
+  <link name="tool0">
+  </link>
   <joint name="wrist_3_link-tool0_fixed_joint" type="fixed">
     <origin rpy="-1.570796325 0 0" xyz="0 0.0823 0"/>
     <parent link="wrist_3_link"/>
